@@ -41,13 +41,6 @@ export default class App extends Component {
           forecastWeather: res2
         })
       })
-    // fetch(`${this.state.currentWeatherURL}q=${this.state.city}&appid=${this.state.appid}`)
-    //   .then(response => response.json())
-    //   .then(currentWeather => {
-    //     this.setState({
-    //       currentWeather
-    //     })
-    //   })
   }
 
   componentDidMount = () => {
@@ -68,13 +61,11 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.currentWeather);
-    console.log(this.state.forecastWeather);
     return (
       <div className={styles.appDarkMode}>
         <CurrentWeather city={this.state.city} weather={this.state.currentWeather} time={this.state.time} />
         <ProgressBar timer={this.state.timer} />
-        <Forecasts />
+        <Forecasts weather={this.state.forecastWeather} />
       </div>
     );
   }
