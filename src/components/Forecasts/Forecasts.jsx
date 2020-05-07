@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import styles from "./Forecasts.module.scss";
 import DailyForecast from "./DailyForecast";
 
 export default class Forecasts extends Component {
@@ -20,7 +21,7 @@ export default class Forecasts extends Component {
     render(){
         this.pushIntoTheNewArray();
         return(
-            <section>
+            <section className={styles.forecasts}>
                 {
                     this.props.weather
                     ? this.state.newArray.map((item, index) => {

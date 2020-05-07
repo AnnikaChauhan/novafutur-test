@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import styles from "./DailyForecast.module.scss";
 
 export default class DailyForecast extends Component {
     state = {
-        imageURL: `http://openweathermap.org/img/wn/${this.props.item.weather[0].icon}.png`
+        imageURL: `http://openweathermap.org/img/wn/${this.props.item.weather[0].icon}@2x.png`
     }
 
     convertToCelcius = (kelvin) => {
@@ -20,14 +21,14 @@ export default class DailyForecast extends Component {
 
     render() {
         return (
-            <article key={this.props.index}>
+            <article key={this.props.index} className={styles.dailyForecast}>
                 <div>
                     <p>{this.convertUTCToRegular(this.props.item.dt)}</p>
                     <p>{this.convertToCelcius(this.props.item.main.temp)}°</p>
                 </div>
                 <div>
-                    <img src={this.state.imageURL} alt={this.props.item.weather[0].description}/>
-                    <p><span>{this.props.item.weather[0].description}</span></p>
+                    <div><img src={this.state.imageURL} alt={this.props.item.weather[0].description}/></div>
+                    <p>{this.props.item.weather[0].description}</p>
                 </div>
             </article>
         );

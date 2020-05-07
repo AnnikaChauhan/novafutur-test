@@ -54,7 +54,7 @@ export default class App extends Component {
     // }, 60000);
     // this.intervalTimer = setInterval(() => {
     //   this.setState({ timer: this.state.timer - 1 })
-    //   if(this.state.timer < 1){
+    //   if(this.state.timer < 0){
     //       clearInterval(this.intervalTimer);
     //   }
     // }, 1000);
@@ -66,6 +66,7 @@ export default class App extends Component {
         <CurrentWeather city={this.state.city} weather={this.state.currentWeather} time={this.state.time} />
         <ProgressBar timer={this.state.timer} />
         <Forecasts weather={this.state.forecastWeather} />
+        <p className={styles.signature}>By Annika Chauhan for Novafutur</p>
       </div>
     );
   }
