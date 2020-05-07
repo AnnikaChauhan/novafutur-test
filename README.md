@@ -1,3 +1,12 @@
+# Novafutur Weather App
+This repository is for the completion of the Novafutur tech test to create a Weather App.
+
+
+## Please Note:
+This app was built in React. In order to run it on your local machine you must do a 'yarn install' in the CLI to install all packages.
+
+Additionally, I have not concealed the API keys due to the nature of this project, however you can see how I have concealed API keys in my repository [travel-project](https://github.com/AnnikaChauhan/travel-project).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
