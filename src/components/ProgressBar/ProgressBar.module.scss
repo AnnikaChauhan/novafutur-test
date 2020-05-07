@@ -1,0 +1,31 @@
+.animationBar {
+    position: relative;
+    display: block;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25), 0 1px rgba(255,255,255,0.8);
+
+    span {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        height: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: red;
+        animation: progress-bar 60s infinite ease;
+    }
+}
+
+@keyframes progress-bar {
+ 0% {
+     width: 0%;
+ }   
+ 100% {
+     width: 100%
+ }
+
+}
