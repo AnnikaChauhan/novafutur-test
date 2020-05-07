@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.module.scss';
+import styles from './App.module.scss';
 import CurrentWeather from "../../components/CurrentWeather";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
@@ -15,7 +15,6 @@ export default class App extends Component {
     forecastWeather: ""
   }
 
-  //remove seconds once we have the timing down
   getTheTime = () => {
     let today = new Date();
     let minutes;
@@ -38,30 +37,29 @@ export default class App extends Component {
       })
   }
 
-  //every minute, rerender the progress bar will be easiest I think
-
   componentDidMount = () => {
+    this.fetchWeather();
     this.setState({ time: this.getTheTime() });
-    this.interval = setInterval(() => {
-      this.setState({ 
-        time: this.getTheTime(),
-        timer: 60
-      })
-    }, 60000);
-    this.intervalTimer = setInterval(() => {
-      this.setState({ timer: this.state.timer - 1 })
-      if(this.state.timer < 1){
-          clearInterval(this.intervalTimer);
-      }
-  }, 1000);
+    // this.interval = setInterval(() => {
+    //   this.setState({ 
+    //     time: this.getTheTime(),
+    //     timer: 60
+    //   })
+    // }, 60000);
+    // this.intervalTimer = setInterval(() => {
+    //   this.setState({ timer: this.state.timer - 1 })
+    //   if(this.state.timer < 1){
+    //       clearInterval(this.intervalTimer);
+    //   }
+    // }, 1000);
   }
 
   render() {
-    // console.log(this.state.currentWeather);
+    console.log(this.state.currentWeather);
     return (
-      <div className="App">
+      <div className={styles.appDarkMode}>
         <CurrentWeather city={this.state.city} weather={this.state.currentWeather} time={this.state.time} />
-        <ProgressBar timer={this.state.timer}/>
+        <ProgressBar timer={this.state.timer} />
       </div>
     );
   }
