@@ -54,6 +54,12 @@ export default class App extends Component {
     // }, 60000);
   }
 
+  componentWillUnmount = () => {
+    this.setState({ 
+      currentWeather: "",
+      forecastWeather: "" })
+  }
+
   render() {
     return (
       <div className={styles.appDarkMode}>

@@ -8,10 +8,10 @@ export default class ProgressBar extends Component {
 
     componentDidMount(){
         this.intervalTimer = setInterval(() => {
-        this.setState({ timer: this.state.timer - 1 })
-        if(this.state.timer < 1){
-            this.setState({ timer: 60 })
-        }
+            this.setState({ timer: this.state.timer - 1 })
+            if(this.state.timer < 1){
+                this.setState({ timer: 60 })
+            }
         }, 1000);
     }
 

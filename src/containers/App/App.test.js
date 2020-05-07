@@ -1,9 +1,29 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
+import { mount } from 'enzyme';
+
+describe('App', () => {
+  let component;
+
+  beforeEach(() => {
+    component = mount(<App />);
+  });
+
+  it('should render the CurrentWeather component', () => {
+    expect(component.find('CurrentWeather').length).toBe(1);
+  });
+
+  it('should render the ProgressBar component', () => {
+    expect(component.find('ProgressBar').length).toBe(1);
+  });
+
+  it('should render the Forecasts component', () => {
+    expect(component.find('Forecasts').length).toBe(1);
+  });
 });
