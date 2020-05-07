@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 
 export default class CurrentWeather extends Component {
-    getTheTime = () => {
+    state = {
+        time: ""
+    }
+
+    componentDidMount = () => {
         let today = new Date();
-        let time = `${today.getHours()}:${today.getMinutes()}`;
-        return time;
+        let minutes;
+        if(today.getMinutes() < 10){
+            minutes = `0${today.getMinutes()}`
+        } else {
+            minutes = today.getMinutes();
+        }
+        let time = `${today.getHours()}:${minutes}`;
+        this.setState({ time })
     }
 
     render() {
@@ -13,7 +23,7 @@ export default class CurrentWeather extends Component {
                 <h1>Weather me this</h1>
                 <article>
                     <p>{this.props.city}</p>
-                    <p>{this.getTheTime()}</p>
+                    <p>{this.state.time}</p>
                     {
                         this.props.weather
                         ? <p>CurrentWeather</p>

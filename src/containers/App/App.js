@@ -13,21 +13,7 @@ export default class App extends Component {
     forecastWeather: ""
   }
 
-  initiateTimer = () => {
-    const reloadMinutes = 1;
-    const milisecondsInAMinute = 1000 * 60;
-    let n = 0;
-    this.interval = setInterval(() => {
-      this.componentDidMount();
-      n += 1;
-      console.log(n);
-    }, (2000))
-  }
-
-  componentDidMount() {
-  }
-
-  getData = () => {
+  componentDidMount = () => {
     fetch(`${this.state.currentWeatherURL}q=${this.state.city}&appid=${this.state.appid}`)
       .then(response => response.json())
       .then(currentWeather => {
