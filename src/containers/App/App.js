@@ -6,6 +6,7 @@ import ProgressBar from "../../components/ProgressBar/ProgressBar";
 export default class App extends Component {
   state = {
     time: "",
+    timer: 60,
     city: "London",
     appid: "9b54ffa13641d002a298819da9bc60a9",
     currentWeatherURL: "https://api.openweathermap.org/data/2.5/weather?",
@@ -42,8 +43,17 @@ export default class App extends Component {
   componentDidMount = () => {
     this.setState({ time: this.getTheTime() });
     this.interval = setInterval(() => {
-      this.setState({ time: this.getTheTime()})
+      this.setState({ 
+        time: this.getTheTime(),
+        timer: 60
+      })
     }, 60000);
+    this.intervalTimer = setInterval(() => {
+      this.setState({ timer: this.state.timer - 1 })
+      if(this.state.timer < 1){
+          clearInterval(this.intervalTimer);
+      }
+  }, 1000);
   }
 
   render() {
@@ -51,7 +61,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <CurrentWeather city={this.state.city} weather={this.state.currentWeather} time={this.state.time} />
-        <ProgressBar/>
+        <ProgressBar timer={this.state.timer}/>
       </div>
     );
   }

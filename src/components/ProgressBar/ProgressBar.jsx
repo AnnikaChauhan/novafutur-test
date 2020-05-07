@@ -3,21 +3,22 @@ import styles from "./ProgressBar.module.scss";
 
 
 export default class ProgressBar extends Component {
-    state = {
-        timer: 60
-    }
-
-    componentDidMount() {
-
-    }
+    // componentDidMount() {
+    //     this.interval = setInterval(() => {
+    //         this.setState({ timer: this.props.timer - 1 })
+    //         if(this.props.timer < 55){
+    //             clearInterval(this.interval);
+    //         }
+    //     }, 1000);
+    // }
 
     render() {
         return (
             <>
-            <p>Reloading in {this.state.timer}s</p>
-            <div className={styles.animationBar}>
-                <span style={{ width: '0%' }}></span>
-            </div>
+                <p>Reloading in {this.props.timer}s</p>
+                <div className={styles.animationBar}>
+                    <span style={{ width: '0%' }}></span>
+                </div>
             </>
         );
     }
