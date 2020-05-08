@@ -42,21 +42,23 @@ export default class App extends Component {
     let currentWeatherURL = `${this.state.currentWeatherURL}q=${this.state.city}&appid=${this.state.appid}`;
     let forecastWeatherURL = `${this.state.forecastWeatherURL}q=${this.state.city}&appid=${this.state.appid}`;
     Promise.all([fetch(currentWeatherURL), fetch(forecastWeatherURL)])
-      .then(([res1, res2]) => {
-        return Promise.all([res1.json(), res2.json()])
+      .then(([respC, respF]) => {
+        return Promise.all([respC.json(), respF.json()])
       })
-      .then(([res1, res2]) => {
+      .then(([respC, respF]) => {
         this.setState({
-          currentWeather: res1,
-          forecastWeather: res2
+          time: this.getTheTime(),
+          currentWeather: respC,
+          forecastWeather: respF.list.filter((item) => {
+            return respF.list.indexOf(item)%8 === 0
+          })
         })
-        this.interval = setTimeout(this.fetchWeather.bind(this), 60000);
+        this.interval = setTimeout(this.fetchWeather, 60000);
       })
       .catch(error => console.log(error));
   }
 
   render() {
-    // console.log(this.state.forecastWeather);
     return (
       <div className={styles.appDarkMode}>
         <CurrentWeather city={this.state.city} weather={this.state.currentWeather} time={this.state.time} />

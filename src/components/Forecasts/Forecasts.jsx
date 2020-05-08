@@ -3,25 +3,12 @@ import styles from "./Forecasts.module.scss";
 import DailyForecast from "./DailyForecast";
 
 export default class Forecasts extends Component {
-    state = {
-        newArray: []
-    }
-
-    pushIntoTheNewArray = () => {
-        if(this.props.weather){
-            for(let i =0; i < 35; i+=8){
-                this.state.newArray.push(this.props.weather.list[i])
-            }
-        }
-    }
-
     render(){
-        this.pushIntoTheNewArray();
         return(
             <section className={styles.forecasts}>
                 {
                     this.props.weather
-                    ? this.state.newArray.map((item, index) => {
+                    ? this.props.weather.map((item, index) => {
                         return <DailyForecast item={item} key={index} />
                     })
                     : <p>Unavailable</p>
