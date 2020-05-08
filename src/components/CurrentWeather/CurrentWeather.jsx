@@ -16,7 +16,7 @@ export default class CurrentWeather extends Component {
                 <p className={styles.time}>{this.props.time} GMT</p>
                 {
                     this.props.weather
-                        ? <p><CountUp end={this.convertToCelcius(this.props.weather.main.temp)} />°</p>
+                        ? <p><CountUp end={Number(this.convertToCelcius(this.props.weather.main.temp))} />°</p>
                         : <p>Unavailable</p>
                 }
             </section>

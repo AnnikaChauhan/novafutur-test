@@ -25,7 +25,7 @@ export default class DailyForecast extends Component {
             <article key={this.props.index} className={styles.dailyForecast}>
                 <div>
                     <p>{this.convertUTCToRegular(this.props.item.dt)}</p>
-                    <p><CountUp end={this.convertToCelcius(this.props.item.main.temp)} />°</p>
+                    <p><CountUp end={Number(this.convertToCelcius(this.props.item.main.temp))} />°</p>
                 </div>
                 <div>
                     <div><img src={this.state.imageURL} alt={this.props.item.weather[0].description}/></div>
