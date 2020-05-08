@@ -9,12 +9,9 @@ export default class Forecasts extends Component {
 
     pushIntoTheNewArray = () => {
         if(this.props.weather){
-            let array = this.props.weather.list;
-            this.state.newArray.push(array[0]);
-            this.state.newArray.push(array[8]);
-            this.state.newArray.push(array[16]);
-            this.state.newArray.push(array[24]);
-            this.state.newArray.push(array[32]);
+            for(let i =0; i < 35; i+=8){
+                this.state.newArray.push(this.props.weather.list[i])
+            }
         }
     }
 

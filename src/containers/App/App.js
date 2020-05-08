@@ -61,6 +61,7 @@ export default class App extends Component {
   }
 
   render() {
+    // console.log(this.state.forecastWeather);
     return (
       <div className={styles.appDarkMode}>
         <CurrentWeather city={this.state.city} weather={this.state.currentWeather} time={this.state.time} />
