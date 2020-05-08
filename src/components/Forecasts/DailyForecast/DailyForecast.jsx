@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./DailyForecast.module.scss";
+import CountUp from "react-countup";
 
 export default class DailyForecast extends Component {
     state = {
@@ -24,7 +25,7 @@ export default class DailyForecast extends Component {
             <article key={this.props.index} className={styles.dailyForecast}>
                 <div>
                     <p>{this.convertUTCToRegular(this.props.item.dt)}</p>
-                    <p>{this.convertToCelcius(this.props.item.main.temp)}°</p>
+                    <p><CountUp end={this.convertToCelcius(this.props.item.main.temp)} />°</p>
                 </div>
                 <div>
                     <div><img src={this.state.imageURL} alt={this.props.item.weather[0].description}/></div>

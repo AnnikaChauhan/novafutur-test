@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./CurrentWeather.module.scss";
+import CountUp from "react-countup";
 
 export default class CurrentWeather extends Component {
     convertToCelcius = (kelvin) => {
@@ -15,7 +16,7 @@ export default class CurrentWeather extends Component {
                 <p className={styles.time}>{this.props.time} GMT</p>
                 {
                     this.props.weather
-                        ? <p>{this.convertToCelcius(this.props.weather.main.temp)}°</p>
+                        ? <p><CountUp end={this.convertToCelcius(this.props.weather.main.temp)} />°</p>
                         : <p>Unavailable</p>
                 }
             </section>

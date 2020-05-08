@@ -26,15 +26,5 @@
         border-radius: 2px;
         overflow: hidden;
         background-color: orange;
-        animation: progress-bar 60s infinite linear;
-    }
-}
-
-@keyframes progress-bar {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 100%;
     }
 }

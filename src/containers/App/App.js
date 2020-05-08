@@ -5,9 +5,10 @@ import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import Forecasts from '../../components/Forecasts/Forecasts';
 
 export default class App extends Component {
+  interval;
+
   state = {
     time: "",
-    timer: 60,
     city: "London",
     appid: "9b54ffa13641d002a298819da9bc60a9",
     currentWeatherURL: "https://api.openweathermap.org/data/2.5/weather?",
@@ -28,6 +29,15 @@ export default class App extends Component {
     return time;
   }
 
+  componentDidMount = () => {
+    this.fetchWeather();
+    this.setState({ time: this.getTheTime() });
+  }
+
+  componentWillUnmount = () => {
+    clearTimeout(this.interval);
+  }
+
   fetchWeather = () => {
     let currentWeatherURL = `${this.state.currentWeatherURL}q=${this.state.city}&appid=${this.state.appid}`;
     let forecastWeatherURL = `${this.state.forecastWeatherURL}q=${this.state.city}&appid=${this.state.appid}`;
@@ -40,24 +50,9 @@ export default class App extends Component {
           currentWeather: res1,
           forecastWeather: res2
         })
+        this.interval = setTimeout(this.fetchWeather.bind(this), 60000);
       })
-  }
-
-  componentDidMount = () => {
-    this.fetchWeather();
-    this.setState({ time: this.getTheTime() });
-    // this.interval = setInterval(() => {
-    //   this.setState({ 
-    //     time: this.getTheTime(),
-    //     timer: 60
-    //   })
-    // }, 60000);
-  }
-
-  componentWillUnmount = () => {
-    this.setState({ 
-      currentWeather: "",
-      forecastWeather: "" })
+      .catch(error => console.log(error));
   }
 
   render() {
