@@ -1,3 +1,3 @@
-import Forecasts from "./Forecasts";
+import Forecasts from "./Forecasts.jsx";
 
 export default Forecasts;

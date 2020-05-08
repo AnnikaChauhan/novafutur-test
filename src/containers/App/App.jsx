@@ -53,7 +53,7 @@ export default class App extends Component {
             return respF.list.indexOf(item)%8 === 0
           })
         })
-        this.interval = setTimeout(this.fetchWeather, 60000);
+        this.interval = setTimeout(this.fetchWeather.bind(this), 60000);
       })
       .catch(error => console.log(error));
   }

@@ -1,3 +1,3 @@
-import DailyForecast from "./DailyForecast";
+import DailyForecast from "./DailyForecast.jsx";
 
 export default DailyForecast;

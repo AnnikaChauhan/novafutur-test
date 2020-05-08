@@ -1,5 +1,5 @@
 import React from "react";
-import DailyForecast from "./DailyForecast";
+import DailyForecast from "./DailyForecast.jsx";
 
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() });
 import { mount } from 'enzyme';
 
 const mockData = {
-    newArray: {
+    weather: {
         dt: "12345",
         main: {
             temp: "200"
@@ -25,7 +25,7 @@ describe('DailyForecast', () => {
     let component;
 
     beforeEach(() => {
-        component = mount(<DailyForecast item={mockData.newArray} />);
+        component = mount(<DailyForecast item={mockData.weather} />);
     });
 
     it('should render an article tag', () => {
@@ -45,10 +45,10 @@ describe('DailyForecast', () => {
     });
 
     it('should receive data as passed down through props', () => {
-        expect(component.props().item).toEqual(mockData.newArray);
+        expect(component.props().item).toEqual(mockData.weather);
     });
 
     it('should render the data it receives through props', () => {
-        expect(component.text()).toContain(mockData.newArray.weather[0].description);
+        expect(component.text()).toContain(mockData.weather.weather[0].description);
     });
 });

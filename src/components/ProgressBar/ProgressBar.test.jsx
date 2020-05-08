@@ -1,5 +1,5 @@
 import React from "react";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "./ProgressBar.jsx";
 
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
