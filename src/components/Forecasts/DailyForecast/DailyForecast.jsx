@@ -3,10 +3,6 @@ import styles from "./DailyForecast.module.scss";
 import CountUp from "react-countup";
 
 export default class DailyForecast extends Component {
-    state = {
-        imageURL: `http://openweathermap.org/img/wn/${this.props.item.weather[0].icon}@2x.png`
-    }
-
     convertToCelcius = (kelvin) => {
         let celsius = kelvin - 273.15;
         celsius = Number.parseFloat(celsius).toFixed(0);
@@ -28,7 +24,7 @@ export default class DailyForecast extends Component {
                     <p><CountUp end={Number(this.convertToCelcius(this.props.item.main.temp))} />°</p>
                 </div>
                 <div>
-                    <div><img src={this.state.imageURL} alt={this.props.item.weather[0].description}/></div>
+                    <div><img src={`http://openweathermap.org/img/wn/${this.props.item.weather[0].icon}@2x.png`} alt={this.props.item.weather[0].description}/></div>
                     <p>{this.props.item.weather[0].description}</p>
                 </div>
             </article>

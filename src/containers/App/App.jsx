@@ -25,7 +25,8 @@ export default class App extends Component {
     } else {
       minutes = today.getMinutes();
     }
-    let time = `${today.getHours()}:${minutes}`;
+    let baseTimezone = today.toTimeString().substr(9,3);
+    let time = `${today.getHours()}:${minutes} ${baseTimezone}`;
     return time;
   }
 
@@ -64,7 +65,7 @@ export default class App extends Component {
         <CurrentWeather city={this.state.city} weather={this.state.currentWeather} time={this.state.time} />
         <ProgressBar />
         <Forecasts weather={this.state.forecastWeather} />
-        <p className={styles.signature}>By Annika Chauhan for Novafutur</p>
+        <p className={styles.signature}>By Annika Chauhan</p>
       </div>
     );
   }

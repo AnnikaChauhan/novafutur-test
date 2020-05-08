@@ -12,12 +12,16 @@ export default class CurrentWeather extends Component {
     render() {
         return (
             <section className={styles.currentWeather}>
-                <p>{this.props.city}</p>
-                <p className={styles.time}>{this.props.time} GMT</p>
+                <div>
+                    <p>{this.props.city}</p>
+                </div>
+                <div>
+                    <p className={styles.time}>{this.props.time}</p>
+                </div>
                 {
                     this.props.weather
-                        ? <p><CountUp end={Number(this.convertToCelcius(this.props.weather.main.temp))} />°</p>
-                        : <p>Unavailable</p>
+                        ? <div><p><CountUp end={Number(this.convertToCelcius(this.props.weather.main.temp))} />°</p></div>
+                        : <div><p>Unavailable</p></div>
                 }
             </section>
         );

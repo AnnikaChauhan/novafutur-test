@@ -22,6 +22,10 @@ export default class ProgressBar extends Component {
         }, 1000);
     }
 
+    componentWillUnmount(){
+        clearInterval(this.intervalTimer);
+    }
+
     render() {
         return (
             <section className={styles.progressBar}>
