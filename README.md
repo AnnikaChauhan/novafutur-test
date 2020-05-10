@@ -1,11 +1,20 @@
 # Novafutur Weather App
 This repository is for the completion of the Novafutur tech test to create a Weather App.
 
+# Annika's Notes:
+All components have been tested and are passing all tests. I have kept to the wireframe as closely as possible and built mobile first, the design only alters very slightly for a larger view. 
 
-## Please Note:
-This app was built in React. In order to run it on your local machine you must do a 'yarn install' in the CLI to install all packages.
+## Additional Notes:
+This app was built in React. In order to run it on your local machine you must do a 'yarn install' in the CLI to install all packages. All tests can be run on the command 'yarn test' and to view the app it is 'yarn start'.
 
 Additionally, I have not concealed the API keys due to the nature of this project, however you can see how I have concealed API keys in my repository [travel-project](https://github.com/AnnikaChauhan/travel-project).
+
+# Reflection
+If I had more time to complete this project I would have liked to include search functionality to improve the usage of the product, and also have a toggle for a light and dark mode to make the weather app more personal for the user. 
+
+Although I solved this by using setIntervals/Timeouts to refresh the data, I would have ideally liked to learn how to use webSockets as I have read that this is a much more efficient way to have a constantly updating API request.
+
+With more time, I'm also sure that I could think of more efficient ways to solve the problem too.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
