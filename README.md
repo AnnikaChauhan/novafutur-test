@@ -1,20 +1,18 @@
 # Novafutur Weather App
 This repository is for the completion of the Novafutur tech test to create a Weather App.
 
-# Annika's Notes:
+## Annika's Notes:
 All components have been tested and are passing all tests. I have kept to the wireframe as closely as possible and built mobile first, the design only alters very slightly for a larger view. 
 
-## Additional Notes:
+### Additional Notes:
 This app was built in React. In order to run it on your local machine you must do a 'yarn install' in the CLI to install all packages. All tests can be run on the command 'yarn test' and to view the app it is 'yarn start'.
 
 Additionally, I have not concealed the API keys due to the nature of this project, however you can see how I have concealed API keys in my repository [travel-project](https://github.com/AnnikaChauhan/travel-project).
 
-# Reflection
-If I had more time to complete this project I would have liked to include search functionality to improve the usage of the product, and also have a toggle for a light and dark mode to make the weather app more personal for the user. 
+## Reflection
+If I had more time to complete this project, I would have liked to fulfil the bonus of the brief. I have a rough idea of what I would have liked to do but I'm not sure how it would work exactly and would take some time to learn. I would also have liked to add some additional features for the user by including search functionality and potentially a toggle for a light and dark mode - to give the user a more personal experience. 
 
-Although I solved this by using setIntervals/Timeouts to refresh the data, I would have ideally liked to learn how to use webSockets as I have read that this is a much more efficient way to have a constantly updating API request.
-
-With more time, I'm also sure that I could think of more efficient ways to solve the problem too.
+Although I solved this by using setIntervals/Timeouts to refresh the data, I would have ideally liked to learn how to use webSockets as I have read that this is a much more efficient way to have a constantly updating API request. I am aware this requires a greater knowledge of Node.js and I have begun taken the steps to gain a more knowledge by completing online tutorials. Some of my latest learnings are publically available on my GitHub.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
